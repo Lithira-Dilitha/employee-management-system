@@ -13,8 +13,9 @@ import lombok.ToString;
 @Entity
 @Table(name = "Employee")
 public class EmployeeEntity {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;

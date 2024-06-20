@@ -1,22 +1,26 @@
 package edu.ict.hris.controller.employee;
 
 import edu.ict.hris.dto.Employee;
+import edu.ict.hris.service.EmployeeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/emp-controller")
+@RequiredArgsConstructor
 public class EmployeeController {
-    List<Employee> employeeList;
+
+    final EmployeeService employeeService;
 
     @PostMapping("employee")
     public void add(@RequestBody Employee employee){
-       employeeList.add(employee);
+       employeeService.addEmployee(employee);
     }
 
-    @GetMapping("/Emplyees")
+    @GetMapping("/employees")
     public List<Employee> getAll(){
-        return employeeList;
+        return employeeService.getAll();
     }
 }
