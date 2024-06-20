@@ -10,7 +10,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Employee {
-    private String id;
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;

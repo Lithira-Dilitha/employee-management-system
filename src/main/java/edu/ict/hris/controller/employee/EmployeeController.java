@@ -23,4 +23,10 @@ public class EmployeeController {
     public List<Employee> getAll(){
         return employeeService.getAll();
     }
+
+    @DeleteMapping("employee/{id}")
+    public String deleteEmployee(@PathVariable Long id){
+        employeeService.deleteEmployeeById(id);
+        return "Deleted !";
+    }
 }
