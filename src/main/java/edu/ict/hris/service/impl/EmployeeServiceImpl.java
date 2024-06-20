@@ -39,4 +39,13 @@ public class EmployeeServiceImpl implements EmployeeService {
             repository.deleteById(id);
         }
     }
+
+    @Override
+    public Employee updateEmployee(Employee employee) {
+        if(repository.findById(employee.getId()).isPresent()){
+            EmployeeEntity save = repository.save(mapper.convertValue(employee, EmployeeEntity.class));
+           return mapper.convertValue(save, Employee.class);
+        }
+        return new Employee();
+    }
 }

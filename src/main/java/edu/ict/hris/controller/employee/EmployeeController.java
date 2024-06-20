@@ -29,4 +29,9 @@ public class EmployeeController {
         employeeService.deleteEmployeeById(id);
         return "Deleted !";
     }
+
+    @PatchMapping("/employee")
+    public Employee updateEmployee(@RequestBody Employee employee){
+       return employeeService.updateEmployee(employee);
+    }
 }
